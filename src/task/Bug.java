@@ -32,9 +32,8 @@ public class Bug extends Task{
 	}
 
 	public int getComplejidad() {
-		int  calculaComplejidad = 0;
 		if (dependencia!=null) {
-			return calculaComplejidad = getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.1);
+			return getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.1);
 		}
 		else {
 			return complejidad;

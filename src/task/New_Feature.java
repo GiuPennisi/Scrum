@@ -26,12 +26,11 @@ public class New_Feature extends Task{
 	}
 
 	public int getComplejidad() {
-		int  calculaComplejidad = 0;
 		if (dependencia!=null) {
-			return calculaComplejidad = getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.5);
+			return getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.5);
 		}
 		else {
-			return getComplejidad();
+			return complejidad;
 		}
 	}
 	
