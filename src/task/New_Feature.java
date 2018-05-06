@@ -16,14 +16,22 @@ public class New_Feature extends Task{
 				fechaFinalizacion);
 		this.dependencia = dependencia;
 	}
-	
+		
+	public Task getDependencia() {
+		return dependencia;
+	}
+
+	public void setDependencia(Task dependencia) {
+		this.dependencia = dependencia;
+	}
+
 	public int getComplejidad() {
 		int  calculaComplejidad = 0;
 		if (dependencia!=null) {
 			return calculaComplejidad = getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.5);
 		}
 		else {
-			return complejidad;
+			return getComplejidad();
 		}
 	}
 	

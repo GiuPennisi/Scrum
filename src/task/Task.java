@@ -34,96 +34,76 @@ public class Task {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
 
-
 	public UUID getIdTask() {
 		return idTask;
 	}
-
 
 	public void setIdTask(UUID idTask) {
 		this.idTask = idTask;
 	}
 
-
 	public String getNombreTask() {
 		return nombreTask;
 	}
-
 
 	public void setNombreTask(String nombreTask) {
 		this.nombreTask = nombreTask;
 	}
 
-
 	public String getDescripcionTask() {
 		return descripcionTask;
 	}
-
 
 	public void setDescripcionTask(String descripcionTask) {
 		this.descripcionTask = descripcionTask;
 	}
 
-
 	public Task_Status getTaskStatus() {
 		return taskStatus;
 	}
-
 
 	public void setTaskStatus(Task_Status taskStatus) {
 		this.taskStatus = taskStatus;
 	}
 
-
 	public ArrayList<Historico> getHistoricoStatus() {
 		return historicoStatus;
 	}
-
 
 	public void setHistoricoStatus(ArrayList<Historico> historicoStatus) {
 		this.historicoStatus = historicoStatus;
 	}
 
-
 	public int getComplejidad() {
 		return complejidad;
 	}
-
 
 	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
 	}
 
-
 	public LinkedList<Task> getDependencias() {
 		return dependencias;
 	}
-
 
 	public void setDependencias(LinkedList<Task> dependencias) {
 		this.dependencias = dependencias;
 	}
 
-
 	public LinkedList<Task> getSubtareas() {
 		return subtareas;
 	}
-
 
 	public void setSubtareas(LinkedList<Task> subtareas) {
 		this.subtareas = subtareas;
 	}
 
-
 	public Date getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
 
-
 	public void setFechaFinalizacion(Date fechaFinalizacion) {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
-	
-	
 	
 }

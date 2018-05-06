@@ -22,6 +22,14 @@ public class Bug extends Task{
 				fechaFinalizacion);
 		this.dependencia = dependencia;
 	}
+	
+	public User_Story getDependencia() {
+		return dependencia;
+	}
+
+	public void setDependencia(User_Story dependencia) {
+		this.dependencia = dependencia;
+	}
 
 	public int getComplejidad() {
 		int  calculaComplejidad = 0;
