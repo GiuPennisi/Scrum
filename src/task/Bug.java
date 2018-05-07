@@ -2,8 +2,8 @@ package task;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.UUID;
 
 import status.Status;
 
@@ -11,33 +11,27 @@ public class Bug extends Task{
 
 	//Subtareas debe ser null si o si porque el bug no puede tener subtareas
 	//Como evitar que se le carguen subtareas heredando el atributo subtareas?
-	//Si dependencias es una sola (US) para que heredar toda la lista si solo va a tener una?
 	
-	User_Story dependencia;
+	public Bug(String idTask, String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
+			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion) {
+		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setIdTask(String idTask) {
+		this.idTask = "BUG"+ Math.random();
+	}
 	
-	public Bug(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
-			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
-			LinkedList<Task> subtareas, Date fechaFinalizacion, User_Story dependencia) {
-		super(idTask, nombreTask, descripcionTask, taskStatus, historicoStatus, complejidad, dependencias, subtareas,
-				fechaFinalizacion);
-		this.dependencia = dependencia;
-	}
-
-	public User_Story getDependencia() {
-		return dependencia;
-	}
-
-	public void setDependencia(User_Story dependencia) {
-		this.dependencia = dependencia;
-	}
-
 	public int getComplejidad() {
-		if (dependencia!=null) {
-			return getComplejidad()+(int)Math.round(dependencia.getComplejidad()*0.1);
+		Iterator<Task> listIterator = dependencias.iterator();
+		int a=0;
+		while (listIterator.hasNext()) {
+			a=listIterator.next().getComplejidad()+(int)Math.round(listIterator.next().getComplejidad()*0.1);
 		}
-		else {
-			return complejidad;
-		}
+		if (a==0)
+			return getComplejidad();
+		else
+			return a;
 	}
 	
 	

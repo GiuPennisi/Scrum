@@ -3,44 +3,45 @@ package task;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.UUID;
 
 import status.Status;
 
+
+
 public class Task {
 
-	UUID idTask = UUID.randomUUID();
+	String idTask;
 	String nombreTask;
 	String descripcionTask;
-	Status taskStatus;
-	ArrayList<Historico> historicoStatus;
 	int complejidad;
 	LinkedList<Task> dependencias;
+	ArrayList<Status> historicoEstado;
 	//tipo Task (tarea generica) donde las subtareas no pueden tener subtareas ni complejidad asignada (??
 	LinkedList<Task> subtareas;
 	Date fechaFinalizacion;
 
-	public Task(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
-			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
-			LinkedList<Task> subtareas, Date fechaFinalizacion) {
+	public Task(String idTask, String nombreTask, String descripcionTask, int complejidad,
+			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
+			Date fechaFinalizacion) {
 		super();
 		this.idTask = idTask;
 		this.nombreTask = nombreTask;
 		this.descripcionTask = descripcionTask;
-		this.taskStatus = taskStatus;
-		this.historicoStatus = historicoStatus;
 		this.complejidad = complejidad;
 		this.dependencias = dependencias;
+		this.historicoEstado = historicoEstado;
 		this.subtareas = subtareas;
 		this.fechaFinalizacion = fechaFinalizacion;
+		Status estadoInicial = null; //tomar fecha actual, 
+		historicoEstado.add(estadoInicial);
 	}
 
-	public UUID getIdTask() {
+	public String getIdTask() {
 		return idTask;
 	}
 
-	public void setIdTask(UUID idTask) {
-		this.idTask = idTask;
+	public void setIdTask(String idTask) {
+		this.idTask = "TAR"+ Math.random();
 	}
 
 	public String getNombreTask() {
@@ -57,24 +58,6 @@ public class Task {
 
 	public void setDescripcionTask(String descripcionTask) {
 		this.descripcionTask = descripcionTask;
-	}
-
-	public Status getTaskStatus() {
-		return taskStatus;
-	}
-	
-	/*MODIFICAR SEGUN LAS REGLAS DE STATUS
-	public void setTaskStatus(Status taskStatus) {
-		this.taskStatus = taskStatus;
-	}
-	*/
-	
-	public ArrayList<Historico> getHistoricoStatus() {
-		return historicoStatus;
-	}
-
-	public void setHistoricoStatus(ArrayList<Historico> historicoStatus) {
-		this.historicoStatus = historicoStatus;
 	}
 
 	public int getComplejidad() {

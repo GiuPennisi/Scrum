@@ -1,5 +1,7 @@
 package status;
 
+import java.util.Date;
+
 import task.Task_Status;
 
 public abstract class Status {
@@ -8,6 +10,7 @@ public abstract class Status {
 	String descripcion;
 	Task_Status anterior = null;
 	Task_Status siguiente = null;
+	Date fecha;
 	
 	public Status(String nombre, String descripcion, Task_Status anterior, Task_Status siguiente) {
 		super();
