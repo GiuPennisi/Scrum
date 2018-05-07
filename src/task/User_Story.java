@@ -6,15 +6,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.UUID;
 
-public class User_Story extends Task{
+import status.Status;
 
-	public User_Story(UUID idTask, String nombreTask, String descripcionTask, Task_Status taskStatus,
+public class User_Story extends Task{
+	
+	
+	//Como indicar que solo quiero que sea objeto de tipo padre y no de los hijos?
+	Task dependencia;
+	
+	public User_Story(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
 			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
-			LinkedList<Task> subtareas, Date fechaFinalizacion) {
+			LinkedList<Task> subtareas, Date fechaFinalizacion, Task dependencia) {
 		super(idTask, nombreTask, descripcionTask, taskStatus, historicoStatus, complejidad, dependencias, subtareas,
 				fechaFinalizacion);
+		this.dependencia = dependencia;
 	}
-	
+
 	public float calculaPromedioEstimacion() {
 		float prom=0; int cant=0;
 		

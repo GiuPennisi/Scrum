@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.UUID;
 
+import status.Status;
+
 public class Bug extends Task{
 
 	//Subtareas debe ser null si o si porque el bug no puede tener subtareas
@@ -13,16 +15,14 @@ public class Bug extends Task{
 	
 	User_Story dependencia;
 	
-	
-
-	public Bug(UUID idTask, String nombreTask, String descripcionTask, Task_Status taskStatus,
+	public Bug(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
 			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
 			LinkedList<Task> subtareas, Date fechaFinalizacion, User_Story dependencia) {
 		super(idTask, nombreTask, descripcionTask, taskStatus, historicoStatus, complejidad, dependencias, subtareas,
 				fechaFinalizacion);
 		this.dependencia = dependencia;
 	}
-	
+
 	public User_Story getDependencia() {
 		return dependencia;
 	}

@@ -19,8 +19,7 @@ public class Task {
 	//tipo Task (tarea generica) donde las subtareas no pueden tener subtareas ni complejidad asignada (??
 	LinkedList<Task> subtareas;
 	Date fechaFinalizacion;
-	
-	
+
 	public Task(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
 			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
 			LinkedList<Task> subtareas, Date fechaFinalizacion) {
