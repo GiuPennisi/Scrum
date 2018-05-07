@@ -11,9 +11,11 @@ public class Sprint {
 	Date fechaInicio;
 	Date fechaFinalizacion;
 	int duracion;
+	
 	//Avance es la cantidad de dias restantes desde que inicia el sprint hasta la fecha de finalizacion.
 	//Cada dia se resta un dia del total
-	int avance;
+		int avance;
+	
 	public Sprint(LinkedList<Task> tasks, Sprint_Status estadoSprint, Date fechaInicio, Date fechaFinalizacion,
 			int duracion, int avance) {
 		super();

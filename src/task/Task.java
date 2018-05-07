@@ -5,12 +5,14 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.UUID;
 
+import status.Status;
+
 public class Task {
 
 	UUID idTask = UUID.randomUUID();
 	String nombreTask;
 	String descripcionTask;
-	Task_Status taskStatus;
+	Status taskStatus;
 	ArrayList<Historico> historicoStatus;
 	int complejidad;
 	LinkedList<Task> dependencias;
@@ -19,7 +21,7 @@ public class Task {
 	Date fechaFinalizacion;
 	
 	
-	public Task(UUID idTask, String nombreTask, String descripcionTask, Task_Status taskStatus,
+	public Task(UUID idTask, String nombreTask, String descripcionTask, Status taskStatus,
 			ArrayList<Historico> historicoStatus, int complejidad, LinkedList<Task> dependencias,
 			LinkedList<Task> subtareas, Date fechaFinalizacion) {
 		super();
@@ -58,14 +60,16 @@ public class Task {
 		this.descripcionTask = descripcionTask;
 	}
 
-	public Task_Status getTaskStatus() {
+	public Status getTaskStatus() {
 		return taskStatus;
 	}
-
-	public void setTaskStatus(Task_Status taskStatus) {
+	
+	/*MODIFICAR SEGUN LAS REGLAS DE STATUS
+	public void setTaskStatus(Status taskStatus) {
 		this.taskStatus = taskStatus;
 	}
-
+	*/
+	
 	public ArrayList<Historico> getHistoricoStatus() {
 		return historicoStatus;
 	}
