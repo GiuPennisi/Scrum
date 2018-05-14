@@ -12,6 +12,8 @@ public abstract class Status {
 	Task_Status siguiente = null;
 	Date fecha;
 	
+	//lalalalla
+	
 	public Status(String nombre, String descripcion, Task_Status anterior, Task_Status siguiente) {
 		super();
 		this.nombre = nombre;
