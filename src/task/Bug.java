@@ -11,6 +11,7 @@ public class Bug extends Task{
 
 	//Subtareas debe ser null si o si porque el bug no puede tener subtareas
 	//Como evitar que se le carguen subtareas heredando el atributo subtareas?
+	// Como máximo, una sola dependencia que debe ser una historia, mejora o tarea.
 	
 	public Bug(String idTask, String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
 			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion) {

@@ -9,6 +9,10 @@ import status.Status;
 
 public class User_Story extends Task{
 	
+	
+	//las dependencias no pueden ser bugs ni mejoras.
+	
+	
 	ArrayList<Flow> pasosHistoria;
 
 	public User_Story(String idTask, String nombreTask, String descripcionTask, int complejidad,
@@ -23,6 +27,15 @@ public class User_Story extends Task{
 		this.idTask = "HIS"+ Math.random();
 	}
 	
+	public float promedioPasos() {
+		int suma=0;
+		Iterator <Flow> arrayIterator = pasosHistoria.iterator();
+		while (arrayIterator.hasNext()) {
+			suma+=arrayIterator.next().getSteps();
+		}
+		return suma/pasosHistoria.size();
+	}
+	
 	public float calculaPromedioEstimacion() {
 		float prom=0; int cant=0;
 		
@@ -32,7 +45,7 @@ public class User_Story extends Task{
 			cant ++;
 		}
 		if (cant!=0)
-			return prom/cant;
+			return (float) (prom/cant+promedioPasos()*0.1);
 		else
 			return 0;
 	}
