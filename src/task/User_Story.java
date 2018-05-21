@@ -9,9 +9,7 @@ import status.Status;
 
 public class User_Story extends Task{
 	
-	
-	//las dependencias no pueden ser bugs ni mejoras.
-	
+	//SUBTAREAS?
 	
 	ArrayList<Flow> pasosHistoria;
 
@@ -22,20 +20,31 @@ public class User_Story extends Task{
 				fechaFinalizacion);
 		this.pasosHistoria = pasosHistoria;
 	}
-
+	
 	public void setIdTask(String idTask) {
 		this.idTask = "HIS"+ Math.random();
 	}
 	
+	/**
+	 * Calcula el promedio de pasos que posee la user story  
+	 * @return 0 si no tiene pasos, o el promedio de los mismos si los tiene
+	 */
 	public float promedioPasos() {
 		int suma=0;
 		Iterator <Flow> arrayIterator = pasosHistoria.iterator();
 		while (arrayIterator.hasNext()) {
 			suma+=arrayIterator.next().getSteps();
 		}
-		return suma/pasosHistoria.size();
+		if (pasosHistoria.isEmpty())
+			return 0;
+		else
+			return suma/pasosHistoria.size();
 	}
 	
+	/**
+	 * Calcula el promedio de la complejidad de las dependencias que posee
+	 * @return valor promedio de la complejidad de sus dependencias (si es que tiene)
+	 */
 	public float calculaPromedioEstimacion() {
 		float prom=0; int cant=0;
 		
@@ -50,7 +59,49 @@ public class User_Story extends Task{
 			return 0;
 	}
 
-	public int getEstimacion(){
+	/**
+	 * 
+	 */
+	public int getComplejidad(){
 		return (int) Math.round((getComplejidad()+calculaPromedioEstimacion()));
 	}
+	
+
+	/**
+	 * Metodo para saber si puede tener dependencias o no
+	 * @return 1 si puede, 0 si no puede
+	 */
+	public int permisoDependencias() {
+		return 1;
+	}
+	
+	/**
+	 * Crea un arreglo con los tipos de dependencias que puede tener
+	 * @param tipo Arreglo con los tipos de dependencias que puede tener
+	 * @param maxCant maxima cantidad de dependencias que puede tener, 999 indica que no hay limite
+	 */
+	public void tipoDependencias (ArrayList<String> tipo, int maxCant) {
+		tipo.add("Task");
+		//SE UTILIZA EL 999 COMO SINONIMO DE QUE PUEDE TENER TODAS LAS NECESARIAS
+		maxCant=999;
+	}
+	
+	/**
+	 * Metodo para saber si puede tener subtareas o no
+	 * @return 1 si puede, 0 si no puede
+	 */
+	public int permisoSubtarea() {
+		return 1;
+	}
+	
+	/**
+	 * Crea un arreglo con los tipos de dependencias que puede tener
+	 * @param tipo Arreglo con los tipos de subtareas que puede tener
+	 * @param maxCant maxima cantidad de subatareas que puede tener, 999 indica que no hay limite
+	 */
+	public void tipoSubtareas (ArrayList<String> tipo, int maxCant) {
+		tipo.add("Task");
+		maxCant=999;
+	}
+
 }

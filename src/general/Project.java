@@ -4,6 +4,9 @@ import java.util.LinkedList;
 
 public class Project {
 
+	//CONTROLAR QUE SI LA LISTA DE SPRINTS TIENE UN ELEMENTO CON STATUS IN PROGRESS NO PUEDE HABER OTRO MAS
+	
+	
 	Backlog backlog;
 	LinkedList<Sprint> sprints;
 	

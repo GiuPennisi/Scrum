@@ -10,13 +10,16 @@ import status.Status;
 
 public class Task {
 
+	//0 O MAS DEPENDENCIAS (CUALQUIER TIPO)
+	// 0 O MAS SUBTAREAS (SOLO TIPO TASK)
+		//SUBTAREAS NO PUEDEN TENER SUBTAREAS NI COMPLEJIDAD
+	
 	String idTask;
 	String nombreTask;
 	String descripcionTask;
 	int complejidad;
 	LinkedList<Task> dependencias;
 	ArrayList<Status> historicoEstado;
-	//tipo Task (tarea generica) donde las subtareas no pueden tener subtareas ni complejidad asignada (??
 	LinkedList<Task> subtareas;
 	Date fechaFinalizacion;
 
@@ -35,7 +38,7 @@ public class Task {
 		Status estadoInicial = null; //tomar fecha actual, 
 		historicoEstado.add(estadoInicial);
 	}
-
+	
 	public String getIdTask() {
 		return idTask;
 	}
@@ -60,6 +63,10 @@ public class Task {
 		this.descripcionTask = descripcionTask;
 	}
 
+	/**
+	 * La complejidad de una Task es un valor unico
+	 * @return valor entero (puntos de complejidad)
+	 */
 	public int getComplejidad() {
 		return complejidad;
 	}
@@ -92,4 +99,42 @@ public class Task {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
 	
+	/**
+	 * Metodo para saber si puede tener dependencias o no
+	 * @return 1 si puede, 0 si no puede
+	 */
+	public int permisoDependencias() {
+		return 1;
+	}
+	
+	/**
+	 * Crea un arreglo con los tipos de dependencias que puede tener
+	 * @param tipo Arreglo con los tipos de dependencias que puede tener
+	 * @param maxCant maxima cantidad de dependencias que puede tener, 999 indica que no hay limite
+	 */
+	public void tipoDependencias (ArrayList<String> tipo, int maxCant) {
+		tipo.add("Task");
+		tipo.add("Bug");
+		tipo.add("New Feature");
+		tipo.add("User Story");
+		maxCant=999;
+	}
+	
+	/**
+	 * Metodo para saber si puede tener subtareas o no
+	 * @return 1 si puede, 0 si no puede
+	 */
+	public int permisoSubtarea() {
+		return 1;
+	}
+	
+	/**
+	 * Crea un arreglo con los tipos de dependencias que puede tener
+	 * @param tipo Arreglo con los tipos de subtareas que puede tener
+	 * @param maxCant maxima cantidad de subatareas que puede tener, 999 indica que no hay limite
+	 */
+	public void tipoSubtareas (ArrayList<String> tipo, int maxCant) {
+		tipo.add("Task");
+		maxCant=999;
+	}
 }
