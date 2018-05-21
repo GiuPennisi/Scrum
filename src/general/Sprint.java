@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import task.Task;
+import task.Task_Status;
 
 public class Sprint {
 	LinkedList<Task> tasks;
@@ -75,5 +76,21 @@ public class Sprint {
 		this.avance = avance;
 	}
 	
-	
+	public void cambioEstado(Sprint_Status nuevoEstado, Date fechaInic, Date fechaFin, int diasDuracion, int diasAvance) {
+		if ( (Sprint_Status.values().equals("EN_CURSO")) ) //planificado->en curso
+		{
+			fechaInicio=fechaInic;
+			fechaFinalizacion=fechaFin;
+			duracion=diasDuracion;
+			avance=diasAvance;            // cuantos dias quedan para pasar a finalizado (restar la duracion por cada dia que pasa)
+		}
+		
+		else { 			 // en curso->finalizado
+			  
+				 
+			 
+		}
+		
+		
+}
 }
