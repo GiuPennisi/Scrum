@@ -18,6 +18,16 @@ public class Task {
 	String nombreTask;
 	String descripcionTask;
 	int complejidad;
+	Task_Status estadoTask;
+	
+	public Task_Status getEstadoTask() {
+		return estadoTask;
+	}
+
+	public void setEstadoTask(Task_Status estadoTask) {
+		this.estadoTask = estadoTask;
+	}
+
 	LinkedList<Task> dependencias;
 	ArrayList<Status> historicoEstado;
 	LinkedList<Task> subtareas;
