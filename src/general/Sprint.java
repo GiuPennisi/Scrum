@@ -1,6 +1,7 @@
 package general;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 
