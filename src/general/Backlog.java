@@ -1,6 +1,9 @@
 package general;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 
+import status.Status;
 import task.Task;
 
 public class Backlog {
@@ -19,6 +22,13 @@ public class Backlog {
 		this.backlog = backlog;
 	}
 	
-	
+	/*public void nuevaTarea(String nombreTask,String descripcionTask, int complejidadTask,boolean esSubtarea) {
+		Task task (nombreTask,descripcionTask,);
+		String idTask, String nombreTask, String descripcionTask, int complejidad,
+		LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas
+		Date fechaFinalizacion, boolean subtarea)
+		task.crear();
+		backlog.add(task);
+	}*/
 	
 }

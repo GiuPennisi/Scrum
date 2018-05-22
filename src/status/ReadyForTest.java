@@ -4,8 +4,8 @@ import task.Task_Status;
 
 public class ReadyForTest extends Status{
 
-	public ReadyForTest(String nombre, String descripcion, Task_Status anterior, Task_Status siguiente) {
-		super(nombre, descripcion, anterior, siguiente);
+	public ReadyForTest(Task_Status anterior, Task_Status siguiente) {
+		super("Ready For Test", "Lorem ipsum dolor sit amet, consectetur adipiscing elit");
 		
 		siguiente = Task_Status.TESTING;
 	}

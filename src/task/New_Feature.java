@@ -11,14 +11,14 @@ public class New_Feature extends Task{
 	
 	//SUBATAREAS?
 	
-	public New_Feature(String idTask, String nombreTask, String descripcionTask, int complejidad,
+	public New_Feature(String nombreTask, String descripcionTask, int complejidad,
 			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
 			Date fechaFinalizacion, boolean subtarea) {
-		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+		super(nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
 				subtarea);
 	}
 
-	public void setIdTask(String idTask) {
+	public void setIdTask() {
 		this.idTask = "MEJ"+ Math.random();
 	}
 

@@ -34,18 +34,18 @@ public class Task {
 	Date fechaFinalizacion;
 	boolean subtarea;
 	
-	public Task(String idTask, String nombreTask, String descripcionTask, int complejidad,
+	public Task(String nombreTask, String descripcionTask, int complejidad,
 			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
 			Date fechaFinalizacion, boolean subtarea) {
 		super();
-		this.idTask = idTask;
+		setIdTask();
 		this.nombreTask = nombreTask;
 		this.descripcionTask = descripcionTask;
 		this.complejidad = complejidad;
 		this.dependencias = dependencias;
 		this.historicoEstado = historicoEstado;
 		this.subtareas = subtareas;
-		this.fechaFinalizacion = fechaFinalizacion;
+		this.fechaFinalizacion = null;
 		Status estadoInicial = null;
 		historicoEstado.add(estadoInicial);
 		this.subtarea=false;
@@ -55,7 +55,7 @@ public class Task {
 		return idTask;
 	}
 
-	public void setIdTask(String idTask) {
+	public void setIdTask() {
 		this.idTask = "TAR"+ Math.random();
 	}
 
@@ -170,4 +170,11 @@ public class Task {
 		tipo.add("Task");
 		maxCant=999;
 	}
+	
+	public void crear () {
+		setIdTask();
+		
+		
+	}
+	
 }

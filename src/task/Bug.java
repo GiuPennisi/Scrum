@@ -12,13 +12,13 @@ public class Bug extends Task{
 	//NO PUEDE TENER SUBTAREAS
 	//DEPENDENCIA SOLO PUEDE SER USER STORY, NEW FEATURE O TASK
 	
-	public Bug(String idTask, String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
+	public Bug(String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
 			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion, boolean subtarea) {
-		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+		super(nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
 				subtarea);
 	}
 	
-	public void setIdTask(String idTask) {
+	public void setIdTask() {
 		this.idTask = "BUG"+ Math.random();
 	}
 

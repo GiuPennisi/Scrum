@@ -4,8 +4,8 @@ import task.Task_Status;
 
 public class Testing extends Status{
 
-	public Testing(String nombre, String descripcion, Task_Status anterior, Task_Status siguiente) {
-		super(nombre, descripcion, anterior, siguiente);
+	public Testing() {
+		super("Testing", "Lorem ipsum dolor sit amet, consectetur adipiscing elit");
 		
 		anterior = Task_Status.TO_DO;
 		siguiente = Task_Status.DONE;

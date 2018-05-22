@@ -6,18 +6,17 @@ import task.Task_Status;
 
 public abstract class Status {
 
-	String nombre;
-	String descripcion;
+	static String nombre;
+	static String descripcion;
 	Task_Status anterior = null;
 	Task_Status siguiente = null;
 	Date fecha;
 	
-	public Status(String nombre, String descripcion, Task_Status anterior, Task_Status siguiente) {
-		super();
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.anterior = anterior;
-		this.siguiente = siguiente;
+	public Status(String nombre, String descripcion) {
+		Status.nombre = nombre;
+		Status.descripcion = descripcion;
+		this.anterior = null;
+		this.siguiente = null;
 	}
 	
 	public String getNombre() {
@@ -25,7 +24,7 @@ public abstract class Status {
 	}
 	
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		Status.nombre = nombre;
 	}
 	
 	public String getDescripcion() {
@@ -33,7 +32,7 @@ public abstract class Status {
 	}
 	
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		Status.descripcion = descripcion;
 	}
 	
 	public Task_Status getAnterior() {
