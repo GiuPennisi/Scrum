@@ -32,6 +32,8 @@ public class Project {
 		this.sprints = sprints;
 	}
 	
-	
+	public void cambioEstadoAFinalizado(Sprint sprintEnCurso) {
+		
+	}
 
 }
