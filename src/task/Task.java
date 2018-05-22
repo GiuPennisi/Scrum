@@ -22,10 +22,11 @@ public class Task {
 	ArrayList<Status> historicoEstado;
 	LinkedList<Task> subtareas;
 	Date fechaFinalizacion;
-
+	boolean subtarea;
+	
 	public Task(String idTask, String nombreTask, String descripcionTask, int complejidad,
 			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
-			Date fechaFinalizacion) {
+			Date fechaFinalizacion, boolean subtarea) {
 		super();
 		this.idTask = idTask;
 		this.nombreTask = nombreTask;
@@ -35,8 +36,9 @@ public class Task {
 		this.historicoEstado = historicoEstado;
 		this.subtareas = subtareas;
 		this.fechaFinalizacion = fechaFinalizacion;
-		Status estadoInicial = null; //tomar fecha actual, 
+		Status estadoInicial = null;
 		historicoEstado.add(estadoInicial);
+		this.subtarea=false;
 	}
 	
 	public String getIdTask() {
@@ -63,18 +65,39 @@ public class Task {
 		this.descripcionTask = descripcionTask;
 	}
 
-	/**
-	 * La complejidad de una Task es un valor unico
-	 * @return valor entero (puntos de complejidad)
-	 */
 	public int getComplejidad() {
 		return complejidad;
 	}
-
+	
 	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
 	}
+	
+	
+	public ArrayList<Status> getHistoricoEstado() {
+		return historicoEstado;
+	}
 
+	public void setHistoricoEstado(ArrayList<Status> historicoEstado) {
+		this.historicoEstado = historicoEstado;
+	}
+
+	public boolean isSubtarea() {
+		return subtarea;
+	}
+
+	public void setSubtarea(boolean subtarea) {
+		this.subtarea = subtarea;
+	}
+
+	/**
+	 * La estimacion de una Task es un valor unico
+	 * @return valor entero (puntos de complejidad)
+	 */
+	public int getEstimacion() {
+		return complejidad;
+	}
+	
 	public LinkedList<Task> getDependencias() {
 		return dependencias;
 	}

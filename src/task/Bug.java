@@ -13,20 +13,23 @@ public class Bug extends Task{
 	//DEPENDENCIA SOLO PUEDE SER USER STORY, NEW FEATURE O TASK
 	
 	public Bug(String idTask, String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
-			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion) {
-		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion);
+			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion, boolean subtarea) {
+		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+				subtarea);
 	}
-
+	
 	public void setIdTask(String idTask) {
 		this.idTask = "BUG"+ Math.random();
 	}
-	
+
 	/**
 	 * La estimacion esta dada por la complejidad asignada mas 1/10 de la estimacion de la tarea de la que depende (si es que tiene)
+	 * 
 	 * DEPENDENCIA != TAREA DE LA QUE DEPENDE, REALIZAR METODO DE BUSQUEDA PARA VER DE QUE TAREA DEPENDE EN ¿EL SPRINT ACTIVO SOLAMENTE?
+	 * 
 	 * @return valor entero con la estimacion del bug
 	 */
-	public int getComplejidad() {
+	public int getEstimacion() {
 		Iterator<Task> listIterator = dependencias.iterator();
 		int a=0;
 		while (listIterator.hasNext()) {

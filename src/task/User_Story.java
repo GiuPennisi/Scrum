@@ -12,15 +12,14 @@ public class User_Story extends Task{
 	//SUBTAREAS?
 	
 	ArrayList<Flow> pasosHistoria;
-
+	
 	public User_Story(String idTask, String nombreTask, String descripcionTask, int complejidad,
 			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
-			Date fechaFinalizacion, ArrayList<Flow> pasosHistoria) {
-		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas,
-				fechaFinalizacion);
-		this.pasosHistoria = pasosHistoria;
+			Date fechaFinalizacion, boolean subtarea) {
+		super(idTask, nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+				subtarea);
 	}
-	
+
 	public void setIdTask(String idTask) {
 		this.idTask = "HIS"+ Math.random();
 	}
@@ -60,13 +59,12 @@ public class User_Story extends Task{
 	}
 
 	/**
-	 * 
+	 * La complejidad es la suma entre la complejidad asignada y ka estimacion 
 	 */
-	public int getComplejidad(){
+	public int getEstimacion(){
 		return (int) Math.round((getComplejidad()+calculaPromedioEstimacion()));
 	}
 	
-
 	/**
 	 * Metodo para saber si puede tener dependencias o no
 	 * @return 1 si puede, 0 si no puede
@@ -82,7 +80,6 @@ public class User_Story extends Task{
 	 */
 	public void tipoDependencias (ArrayList<String> tipo, int maxCant) {
 		tipo.add("Task");
-		//SE UTILIZA EL 999 COMO SINONIMO DE QUE PUEDE TENER TODAS LAS NECESARIAS
 		maxCant=999;
 	}
 	
