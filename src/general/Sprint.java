@@ -104,7 +104,7 @@ public class Sprint {
 	
 	public LinkedList<Task> getTareasUndone() {
 		LinkedList<Task> tasksUndone= new LinkedList<Task>(); //Lista con las tareas pendientes
-		if( (estadoSprint.equals(Sprint_Status.EN_CURSO)) ) {
+		if( (estadoSprint.equals(Sprint_Status.EN_CURSO)) ) { //esta en curso? si? genial
 			 Iterator<Task> tasksIterator = tasks.iterator();
 					 while( tasksIterator.hasNext()){
 				 if (! (tasksIterator.next().getEstadoTask().equals(Task_Status.DONE))) {
@@ -113,8 +113,6 @@ public class Sprint {
 			 	 }
 		    }
 	    }
-		//return taskUndone;
-		return null; //PONGO ESTE RETURN NULL PARA QUE NO TIRE ERROR
-		//return tasksUndone;			//Devuelvo la lista de tareas pendientes
+		return tasksUndone ;//Devuelvo la lista de tareas pendientes
   }
 }

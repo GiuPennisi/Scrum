@@ -1,6 +1,8 @@
 package general;
 
+import java.util.Iterator;
 import java.util.LinkedList;
+import task.Task;
 
 public class Project {
 
@@ -33,6 +35,10 @@ public class Project {
 	}
 	
 	public void cambioEstadoAFinalizado(Sprint sprintEnCurso) {
+		LinkedList<Task> tasksUndone= new LinkedList<Task>();
+		tasksUndone=sprintEnCurso.getTareasUndone(); 
+		Iterator<Sprint> sprintIterator = sprints.iterator();
+		while(sprintIterator.)
 		
 	}
 
