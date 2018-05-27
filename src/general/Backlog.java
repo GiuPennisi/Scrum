@@ -1,9 +1,6 @@
 package general;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
 
-import status.Status;
+import java.util.LinkedList;
 import task.Task;
 
 public class Backlog {

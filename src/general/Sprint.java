@@ -92,13 +92,8 @@ public class Sprint {
 			  if( (estadoSprint.equals(Sprint_Status.EN_CURSO)) ) {	// en curso->finalizado
 				  Iterator<Task> tasksIterator = tasks.iterator();
 				  while( tasksIterator.hasNext()){
-					  
-					  
 				  }
-				  
 			  }
-				 
-			 
 		}*/ //
 	}
 	
@@ -115,4 +110,13 @@ public class Sprint {
 	    }
 		return tasksUndone ;//Devuelvo la lista de tareas pendientes
   }
+
+	public void setTareasUndone(LinkedList<Task> tasksUndone){
+		Iterator<Task> tasksUndoneIterator = tasksUndone.iterator();
+		while ((tasksUndoneIterator.hasNext())) { //Copio cada nodo de las tarea pendientes y lo agrego a la lista de tareas
+			Task e = null;
+			e=tasksUndoneIterator.next();
+			tasks.add(e);			
+			}
+	}
 }

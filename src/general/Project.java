@@ -38,8 +38,18 @@ public class Project {
 		LinkedList<Task> tasksUndone= new LinkedList<Task>();
 		tasksUndone=sprintEnCurso.getTareasUndone(); 
 		Iterator<Sprint> sprintIterator = sprints.iterator();
-		while(sprintIterator.)
-		
-	}
+		int i=0, j=0;
+		while((sprintIterator.hasNext()) & (i==0)){
+			if(sprintIterator.next().equals(sprintEnCurso)) { //Si encuentra el sprint en la lista
+				i=1;
+				while((sprintIterator.hasNext()) & (j==0)) {  
+					if (sprintIterator.next().getEstadoSprint().equals(Sprint_Status.EN_CURSO)) { //Encuentra el proximo sprint en curso
+						sprintIterator.next().setTareasUndone(tasksUndone);
+						j=1;
+					   }
+				     }
+			   } 
+		    }		//Si i=0, no existe el sprint de entrada.    Si j=0, no hay mas sprints en curso.
+   }
 
 }
