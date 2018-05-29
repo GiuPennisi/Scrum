@@ -45,6 +45,7 @@ public class Project {
 				while((sprintIterator.hasNext()) & (j==0)) {  
 					if (sprintIterator.next().getEstadoSprint().equals(Sprint_Status.EN_CURSO)) { //Encuentra el proximo sprint en curso
 						sprintIterator.next().setTareasUndone(tasksUndone);
+						sprintEnCurso.setEstadoSprint(Sprint_Status.FINALIZADO);
 						j=1;
 					   }
 				     }
@@ -52,4 +53,21 @@ public class Project {
 		    }		//Si i=0, no existe el sprint de entrada.    Si j=0, no hay mas sprints en curso.
    }
 
+	
+	
+	//Solo los sprint planificado se pueden borrar
+	//todas sus tareas pasan al backlog
+	public void deleteSprint(Sprint sprintEnCurso) {
+		if(sprintEnCurso.getEstadoSprint().equals(Sprint_Status.PLANIFICADO)) {
+			LinkedList<Task> tasks=sprintEnCurso.getTasks();
+			backlog.setBacklog(tasks);
+			Iterator<Sprint> sprintIterator = sprints.iterator();
+			while(sprintIterator.hasNext()) {
+				if(sprintIterator.next().equals(sprintEnCurso))
+					sprintIterator.remove();
+			}
+		}
+		
+	}
+	
 }

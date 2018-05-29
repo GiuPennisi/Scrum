@@ -19,6 +19,12 @@ public class Task {
 	String descripcionTask;
 	int complejidad;
 	Task_Status estadoTask;
+	LinkedList<Task> dependencias;
+	ArrayList<Status> historicoEstado;
+	LinkedList<Task> subtareas;
+	Date fechaFinalizacion;
+	boolean subtarea;
+	
 	
 	public Task_Status getEstadoTask() {
 		return estadoTask;
@@ -27,12 +33,6 @@ public class Task {
 	public void setEstadoTask(Task_Status estadoTask) {
 		this.estadoTask = estadoTask;
 	}
-
-	LinkedList<Task> dependencias;
-	ArrayList<Status> historicoEstado;
-	LinkedList<Task> subtareas;
-	Date fechaFinalizacion;
-	boolean subtarea;
 	
 	public Task(String nombreTask, String descripcionTask, int complejidad,
 			LinkedList<Task> dependencias, ArrayList<Status> historicoEstado, LinkedList<Task> subtareas,
