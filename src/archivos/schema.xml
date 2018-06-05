@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <record>
+       <ID>HIS001</ID>
+       <Nombre>Login</Nombre>
+       <Descripcion>Login de la aplicacion con usuario y contrasenia</Descripcion>
+       <Estado>DONE</Estado>
+       <Complejidad>3</Complejidad>
+       <Dependencias></Dependencias>
+       <Sub-tareas>TAR004</Sub-tareas>
+       <Finalizacion>10/05/2018</Finalizacion>
+       <Flujo>Usuario invalido</Flujo>
+       <Pasos>6</Pasos>
+    </record>
+    <record>
+       <ID>HIS002</ID>
+       <Nombre>Listado de estrenos</Nombre>
+       <Descripcion>Listado de peliculas estrenadas en las ultimas dos semanas.</Descripcion>
+       <Estado>DONE</Estado>
+       <Complejidad>8</Complejidad>
+       <Dependencias>TAR003</Dependencias>
+       <Sub-tareas>TAR006</Sub-tareas>
+       <Finalizacion>23/05/2018</Finalizacion>
+       <Flujo>Solicitar listado</Flujo>
+       <Pasos>15</Pasos>
+    </record>
+</data-set>
