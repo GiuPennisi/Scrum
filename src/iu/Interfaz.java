@@ -12,10 +12,28 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.Window;
+import java.util.LinkedList;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.JTabbedPane;
+import javax.swing.JTree;
+import javax.swing.JScrollPane;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
+import javax.swing.UIManager;
+import javax.swing.SwingConstants;
+
+import task.Task;
+import general.Sprint;
+import general.Project;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Interfaz {
 
@@ -24,6 +42,7 @@ public class Interfaz {
 	private JTextField txtFinalizacion;
 	private JTextField txtNumBug;
 	private JTextField txtNombreBug;
+	private DefaultListModel<String> modelSprint;
 
 	/**
 	 * Launch the application.
@@ -58,12 +77,56 @@ public class Interfaz {
 		frmTpJava.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTpJava.getContentPane().setLayout(null);
 		
+		
+		modelSprint = new DefaultListModel<String>();
+		modelSprint = Project.getSprint(); //cambiarlo
+		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 842, 483);
 		frmTpJava.getContentPane().add(tabbedPane);
 		
 		JPanel pnlPrincipal = new JPanel();
 		tabbedPane.addTab("Principal", null, pnlPrincipal, null);
+		pnlPrincipal.setLayout(null);
+		
+		JScrollPane pnlSprints = new JScrollPane();
+		pnlSprints.setBounds(10, 30, 815, 150);
+		pnlPrincipal.add(pnlSprints);
+		
+		JList<String> listSprints = new JList<String>();
+		pnlSprints.setViewportView(listSprints);
+		listSprints.setFont(new Font("Calibri", Font.PLAIN, 15));
+		listSprints.setBorder(new MatteBorder(1, 1, 1, 1, (Color) UIManager.getColor("ToolBar.shadow")));
+		
+		JLabel lblSprints = new JLabel("Sprints");
+		lblSprints.setBounds(358, 11, 89, 14);
+		lblSprints.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSprints.setFont(new Font("Calibri", Font.ITALIC, 15));
+		pnlPrincipal.add(lblSprints);
+		
+		final JScrollPane detallesSprint = new JScrollPane();
+		detallesSprint.setBounds(10, 250, 815, 150);
+		detallesSprint.setVisible(false);
+		pnlPrincipal.add(detallesSprint);
+
+		
+		JList listDetallesSprint = new JList();
+		detallesSprint.setViewportView(listDetallesSprint);
+		
+		JButton btnVerDetalle = new JButton("Ver Detalle");
+		btnVerDetalle.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+            	detallesSprint.setVisible(true);
+            	frmTpJava.getContentPane().validate();
+            	frmTpJava.getContentPane().repaint();
+            }
+		});
+		btnVerDetalle.setBounds(358, 201, 89, 23);
+		pnlPrincipal.add(btnVerDetalle);
+		
+
+		
 		
 		JPanel pnlNuevoBug = new JPanel();
 		tabbedPane.addTab("+ Bug", null, pnlNuevoBug, null);
