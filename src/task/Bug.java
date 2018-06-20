@@ -5,6 +5,10 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
+import controles.Validaciones;
+import general.Backlog;
 import status.Status;
 
 public class Bug extends Task{
@@ -21,7 +25,10 @@ public class Bug extends Task{
 	public void setIdTask() {
 		this.idTask = "BUG"+ Math.random();
 	}
-
+	
+	public String getNumBug() {
+		return this.idTask;
+	}
 	/**
 	 * La estimacion esta dada por la complejidad asignada mas 1/10 de la estimacion de la tarea de la que depende (si es que tiene)
 	 * 
@@ -79,5 +86,44 @@ public class Bug extends Task{
 		tipo=null;
 		maxCant=0;
 	}
+	
+	/**
+	 * Valido la creacion del bug
+	 * 
+	 */
+	public boolean validarBug(String nombreTask) {
+		boolean valida = true;
+		if (Validaciones.noSonLetras(getNumBug()) == true) {
+			JOptionPane.showMessageDialog(null, "ERROR. Ingrese caractéres alfabéticos en el nombre.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			valida = false;
+		} else
+			valida = true;
+
+		return valida;
+	}
+	
+	/**
+	 * Metodo para crear un bug
+	 * 
+	 * @param nomb
+	 * @param DNI
+	 * @param sueldo
+	 */
+
+
+	public void altaBug(String nombreTask, String descripcionTask, int complejidad, LinkedList<Task> dependencias,
+			ArrayList<Status> historicoEstado, LinkedList<Task> subtareas, Date fechaFinalizacion, boolean subtarea) {
+		if (validarBug(nombreTask)) {
+			Bug nuevo = new Bug(nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+					subtarea);
+			if (Backlog.listaBugs == null) // si no tiene elementos
+				Backlog.listaBugs = new LinkedList<Bug>();
+			//if (Backlog.estaBug(nuevo.getNumBug(), Backlog.listaBugs) == false) {
+				Backlog.listaBugs.add(nuevo);
+			//}
+		}
+	}
+
 
 }

@@ -1,9 +1,12 @@
 package general;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
+
+import task.Bug;
 import task.Task;
 
-public class Backlog {
+public class Backlog<string> {
 	LinkedList<Task> backlog;
 
 	public Backlog(LinkedList<Task> backlog) {
@@ -27,5 +30,20 @@ public class Backlog {
 		task.crear();
 		backlog.add(task);
 	}*/
+	public static LinkedList<Bug> listaBugs;
 	
+	public boolean estaBug(string NOMBREBUG, LinkedList<Bug> lista) {
+		boolean esta = false;
+		Bug nodoBug = null;
+		if (lista != null) {
+			ListIterator<Bug> iterador = lista.listIterator();
+			while (iterador.hasNext()) {
+				nodoBug = iterador.next();
+				if (nodoBug.getNumBug() == NOMBREBUG) {
+					esta = true;
+				}
+			}
+		}
+		return esta;
+	}
 }

@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,6 +17,7 @@ import java.awt.Window;
 import java.util.LinkedList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
@@ -34,6 +36,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import task.Bug;
 
 public class Interfaz {
 
@@ -70,7 +73,7 @@ public class Interfaz {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frmTpJava = new JFrame();
 		frmTpJava.setTitle("TP JAVA 2018");
 		frmTpJava.setBounds(100, 100, 868, 544);
@@ -81,7 +84,8 @@ public class Interfaz {
 		modelSprint = new DefaultListModel<String>();
 		modelSprint = Project.getSprint(); //cambiarlo
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		final JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setSelectedIndex(0);
 		tabbedPane.setBounds(10, 11, 842, 483);
 		frmTpJava.getContentPane().add(tabbedPane);
 		
@@ -124,6 +128,16 @@ public class Interfaz {
 		});
 		btnVerDetalle.setBounds(358, 201, 89, 23);
 		pnlPrincipal.add(btnVerDetalle);
+		
+		JButton btnModificar = new JButton("Modificar");
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(243, 411, 89, 23);
+		pnlPrincipal.add(btnModificar);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setEnabled(false);
+		btnEliminar.setBounds(475, 411, 89, 23);
+		pnlPrincipal.add(btnEliminar);
 		
 
 		
@@ -216,15 +230,53 @@ public class Interfaz {
 		txtNombreBug.setColumns(10);
 		pnlNuevoBug.add(txtNombreBug);
 		
-		JButton button_1 = new JButton("New button");
-		button_1.setBounds(304, 5, 23, 23);
-		pnlNuevoBug.add(button_1);
+		final JButton btnAceptar = new JButton("Aceptar");
+		/*btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					if (modo=Agrega) {
+						int btnPregunta = JOptionPane.showConfirmDialog(null,
+								"¿Desea agregar este Bug?");
+						if (btnPregunta == JOptionPane.YES_OPTION) {
+							Bug.altaBug(nombreTask, descripcionTask, complejidad, dependencias, historicoEstado, subtareas, fechaFinalizacion,
+									subtarea);
+							if (modelBug == null)
+								modelBug = new DefaultListModel<String>();
+							modelBug.addElement(tfAltaBug.getText());
+							JOptionPane.showMessageDialog(null, "Bug añadido exitosamente",
+									"Exito", JOptionPane.INFORMATION_MESSAGE, OK);
+							jlistModifBug.setModel(modelBug);
+							jlistBajaBug.setModel(modelBug);
+						}
+						else if (modo=Modifica){
+							
+						}
+							
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "IMPORTANTE\nBug existente", "Importante",
+						JOptionPane.WARNING_MESSAGE);
+			}
+					}
+					
+			}
+		});*/
+		btnAceptar.setBounds(300, 5, 78, 23);
+		pnlNuevoBug.add(btnAceptar);
 		
-		JButton button_2 = new JButton("New button");
-		button_2.setBounds(356, 5, 23, 23);
-		pnlNuevoBug.add(button_2);
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(410, 5, 78, 23);
+		pnlNuevoBug.add(btnCancelar);
 		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("New tab", null, panel_2, null);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("New tab", null, tabbedPane_1, null);
+		tabbedPane_1.setSelectedIndex(1);
+		
 	}
 }
